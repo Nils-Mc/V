@@ -1,0 +1,15 @@
+{
+  "name": "how2virus",
+  "version": "1.0.0",
+  "description": "Fake-Hacking-Website mit Besucher-Tracking und automatischem PDF-Download",
+  "main": "worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler publish"
+  },
+  "author": "Nils-Mc",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

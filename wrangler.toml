@@ -1,0 +1,8 @@
+name = "how2virus"
+main = "worker.js"
+compatibility_date = "2025-06-03"
+
+[env.production]
+kv_namespaces = [
+  { binding = "VISIT_LOGS", id = "deine_kv_namespace_id" }
+]

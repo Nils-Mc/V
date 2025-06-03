@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>How2virus</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      background: black; color: lime;
+      font-family: monospace;
+      overflow: hidden;
+    }
+    #console {
+      white-space: pre-line;
+      padding: 20px;
+      animation: flicker 0.15s infinite;
+    }
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.9; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="console"></div>
+  <script>
+    // Auto-Vollbild
+    document.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      }
+    });
+
+    // Fake-Terminal-Text
+    const lines = [
+      "Starte Hack-Modul...",
+      "Lade Payload...",
+      "Zugriff auf Kamera...",
+      "Sammle IP & Browser-Infos...",
+      "Installiere Trojaner...",
+      "Sende Daten an Command & Control...",
+      "Downloading: Virus.pdf...",
+      "Übernehme Systemsteuerung...",
+      "DONE ✅",
+      "Drücke ESC zum Verlassen..."
+    ];
+    let index = 0;
+    const consoleDiv = document.getElementById('console');
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+    async function run() {
+      while (index < lines.length) {
+        consoleDiv.innerText += lines[index++] + '\n';
+        await delay(800);
+      }
+    }
+
+    // Auto-PDF-Download
+    function downloadPDF() {
+      const a = document.createElement('a');
+      a.href = '/Virus.pdf';
+      a.download = 'Virus.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    run().then(downloadPDF);
+  </script>
+</body>
+</html>
