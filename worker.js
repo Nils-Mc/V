@@ -29,6 +29,6 @@ export default {
     }
 
     // Statische Dateien von Cloudflare Pages bereitstellen
-    return fetch(`https://your-pages-domain.pages.dev${url.pathname}`);
+    return fetch(`https://how2virus.de${url.pathname}`);
   }
 };
